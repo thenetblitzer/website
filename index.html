@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Luke Miller Game Developer</title>
+        <link rel="stylesheet" href="Media/main.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
+        
+        <script src="JS/main.js"></script>
+        <script src="JS/utilities.js"></script>
+        <script src="JS/window.js"></script>
+        <script src="JS/loader.js"></script>
+        <script src="JS/particle.js"></script>
+    </head>
+    
+    <body>
+        <div id="startWrapper">
+            <canvas id="mainCanvas">
+                Your browser does not support this website. Please use a more modern browser.
+            </canvas>
+            <div id="aboutWrapper" data-open='false'>
+                <div id="aboutHandle" class="menuHandle" data-open='false'>
+                    <span class="lowText">About</span>
+                </div>
+                <div id="aboutInfoArea">
+                    <p class="smallText firstText">Personal Project</p>
+                    <p class="smallText firstText">2016</p>
+                    <br/>
+                    <p class="smallText secondText">JavaScript</p>
+                    <p class="smallText secondText">HTML/CSS</p>
+                </div>
+            </div>
+            <div id="worksWrapper">
+                <span class="arrow" style="left: 15px;"></span>
+                <p>Works</p>
+                <span class="arrow" style="right: 15px;"></span>
+            </div>
+        </div>
+        <div class="projectWrapper">
+            <div class="projectInfo">
+                <p class="projectTitle">Rogue Smith</p>
+                <p class="smallText firstText">2016</p>
+                <p class="smallText secondText">C#</p>
+                <p class="smallText secondText">Unity and Photoshop</p>
+            </div>
+        </div>
+        <a href="https://people.rit.edu/ljm1896/330/Assignments/AudioProject/Visualizer.html" title="Audio Visualizer" target="_blank">
+            <div class="projectWrapper" style="background-image: url('Media/AudioVisualizer.png')" onclick=>
+                <div class="projectInfo">
+                    <p class="projectTitle">Audio Visualizer</p>
+                    <p class="smallText firstText">2016</p>
+                    <p class="smallText secondText">JavaScript</p>
+                    <p class="smallText secondText">HTML/CSS</p>
+                </div>
+            </div>
+        </a>
+        <a href="NBody/nbody.html" title="N-Body Simulator" target="_blank">
+            <div class="projectWrapper" style="background-image: url('Media/NBody.png')">
+                <div class="projectInfo">
+                    <p class="projectTitle">N-Body Simulator</p>
+                    <p class="smallText firstText">2016</p>
+                    <p class="smallText secondText">JavaScript</p>
+                </div>
+            </div>
+        </a>
+    </body>
+</html>
