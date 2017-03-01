@@ -83,7 +83,7 @@ site.Window = {
         
         drawText(this.ctx, 'Luke Miller', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500), 'normal small-caps 300 4.5em Lato', 'rgb(255, 255, 255)');
         drawText(this.ctx, 'Game Developer', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500) + 75, 'normal normal 300 1.85em Lato', 'rgb(255, 255, 255)');
-        drawText(this.ctx, 'robotscandrawtoo@gmail.com', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500) + 105, 'normal normal 300 1em Lato', 'rgb(255, 255, 255)');
+        drawText(this.ctx, 'ljm1896@rit.edu', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500) + 105, 'normal normal 300 1em Lato', 'rgb(255, 255, 255)');
         drawText(this.ctx, 'Site under construction', this.canvas.width / 2, 15, 'normal normal 300 0.7em Lato', 'rgb(255, 255, 255)');
     },
     
