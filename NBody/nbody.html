@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html style="padding: 0; margin: 0;">
     <head>
@@ -81,4 +82,89 @@
             </div>
         </div>
     </body>
+=======
+<!DOCTYPE html>
+<html style="padding: 0; margin: 0;">
+    <head>
+        <meta charset="utf-8">
+        <title>N-Body Simulator</title>
+        <link rel="stylesheet" href="Media/main.css" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
+        
+        <script src="JS/main.js"></script>
+        <script src="JS/utilities.js"></script>
+        <script src="JS/window.js"></script>
+        <script src="JS/input.js"></script>
+        <script src="JS/loader.js"></script>
+        <script src="JS/particle.js"></script>
+        <script src="JS/physicalHash.js"></script>
+        <script src="JS/gravityHash.js"></script>
+        <script src="JS/pixi.min.js"></script>
+    </head>
+    
+    <body>
+        <div id="controlWrapper">
+            <form>
+                <p id="controlTitle">Options</p>
+                <hr />
+                <p class="controlSection">Turn On/Off</p>
+                <p class="contentOption">
+                    <input type="checkbox" name="collisions" id="collisions" checked>
+                    Collisions
+                </p>
+                <p class="contentOption">
+                    <input type="checkbox" name="gravity" id="gravity" checked>
+                    Gravity
+                </p>
+                <hr />
+                
+                <p class="controlSection">Adjust Values</p>
+                <p class="contentOption">
+                    <label for='gravityAmount'>Gravity Strength: </label>
+                    <span id='gravityAmountResults'>1.0</span>
+                    <input type="range" min=0 max=10 value=1 step=0.1 name="gravityAmount" id="gravityAmount" />
+                </p>
+                <p class="contentOption">
+                    <label for='timescaleAmount'>Timescale: </label>
+                    <span id='timescaleAmountResults'>100000x</span>
+                    <input type="range" min=0 max=6 value=5 step=0.1 name="timescaleAmount" id="timescaleAmount" />
+                </p>
+                <p class="contentOption">
+                    <label for='zoomAmount'>Zoom: </label>
+                    <span id='zoomAmountResults'>1x</span>
+                    <input type="range" min=0.1 max=5 value=1 step=0.1 name="zoomAmount" id="zoomAmount" />
+                </p>
+                <hr />
+                
+                <p class="controlSection">New Simulation</p>
+                <p class="contentOption">
+                    <label for='particleCount'>Particle Count: </label>
+                    <span id='particleCountResults'>500</span>
+                    <input type="range" min=250 max=10000 value=500 step=250 name="particleCount" id="particleCount" />
+                </p>
+                
+                <p class="controlButton" id="restartButton">Restart</p>
+                
+            </form>
+        </div>
+        <div id="startWrapper">
+            <!--<canvas id="mainCanvas">
+                Your browser does not support this website. Please use a more modern browser.
+            </canvas>-->
+            <div id="aboutWrapper" data-open='false'>
+                <div id="aboutHandle" class="menuHandle" data-open='false'>
+                    <span class="lowText">About</span>
+                </div>
+                <div id="aboutInfoArea">
+                    <p class="smallText firstText">Luke Miller</p>
+                    <p class="smallText firstText">Personal Project</p>
+                    <p class="smallText firstText">2016</p>
+                    <br/>
+                    <p class="smallText secondText">JavaScript</p>
+                    <p class="smallText secondText">HTML/CSS</p>
+                </div>
+            </div>
+        </div>
+    </body>
+>>>>>>> a44ceef3da2b174d3933fd3ecee47fd726bc6832
 </html>
