@@ -1,7 +1,7 @@
 html, body {
     padding: 0;
     margin: 0;
-    background: black;
+    background: #363831;
     overflow-x: hidden;
     
     font-family: 'Lato', sans-serif;
@@ -27,7 +27,7 @@ a {
     
     margin: 0 auto;
     
-    background: black;
+    background: #9A8;
     overflow-y: hidden;
 }
 
@@ -161,18 +161,20 @@ a {
 }
 
 .projectWrapper {
-    width: 95vw;
-    max-width: 1280px;
-    height: 450px;
+    width: 100vw;
+    min-height: 450px;
+	height: 50vh;
     
-    margin: 20px auto;
+    margin: 0 auto 10px;
     
     background-image: url('NoImage.png');
     background-repeat: no-repeat;
-    background-attachment: fixed;
     background-size: cover;
     z-index: 1;
     transition: all 1s;
+}
+a:last-child .projectWrapper {
+  margin-bottom: 0;
 }
 .projectWrapper:hover {
     cursor: pointer;

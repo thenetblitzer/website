@@ -16,7 +16,7 @@ site.Particle = function() {
         this.mass = undefined;          // will be set later
         this.radius = undefined;        // will be set later
         
-        this.color = 'rgb(255, 255, 255)';    // will be set later
+        this.color = '#237';    // will be set later
         this.STATE = 'ALIVE';
         this.lastDistance = undefined;              // optimization variable
         
@@ -26,9 +26,9 @@ site.Particle = function() {
         //randomColor(this);
         
         this.mass = clamp(Math.random(), 0.25, 1) * 5 * 20;  // will always be squared
-        this.radius = Math.sqrt(this.mass / 6);        // doesn't need to be the root
+        this.radius = Math.sqrt(this.mass / 2);        // doesn't need to be the root
         
-        sunColor(this);
+        //sunColor(this);
     };
     
     var p = Particle.prototype;
