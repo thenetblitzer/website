@@ -2,9 +2,9 @@
 
 'use strict'
 
-var site = site || { };
+var site = site || {};
 
-window.onload = function(){
-    site.main.init();
-    site.Window.init();
+window.onload = function () {
+  site.main.init();
+  site.Window.init();
 }

@@ -1,42 +1,114 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>Luke Miller Game Developer</title>
-        <link rel="stylesheet" href="Media/main.css" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
-        
-        <script src="JS/main.js"></script>
-        <script src="JS/utilities.js"></script>
-        <script src="JS/window.js"></script>
-        <script src="JS/loader.js"></script>
-        <script src="JS/particle.js"></script>
-    </head>
-    
-    <body>
-        <div id="startWrapper">
-            <canvas id="mainCanvas">
-                Your browser does not support this website. Please use a more modern browser.
-            </canvas>
-            <div id="aboutWrapper" data-open='false'>
-                <div id="aboutHandle" class="menuHandle" data-open='false'>
-                    <span class="lowText">About</span>
-                </div>
-                <div id="aboutInfoArea">
-                    <p class="smallText firstText">Personal Project</p>
-                    <p class="smallText firstText">2016</p>
-                    <br/>
-                    <p class="smallText secondText">JavaScript</p>
-                    <p class="smallText secondText">HTML/CSS</p>
-                </div>
-            </div>
-            <div id="worksWrapper">
-                <span class="arrow" style="left: 15px;"></span>
-                <p>Works</p>
-                <span class="arrow" style="right: 15px;"></span>
-            </div>
-        </div>
-      <!--
+<head>
+  <meta charset="utf-8">
+  <title>Luke Miller Game Developer</title>
+  <link rel="stylesheet" href="Media/main.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,900" rel="stylesheet">
+  
+  <link rel="icon" type="image/x-icon" href="Media/favicon.ico" />
+  <link rel="icon" type="image/png" href="Media/favicon.png" />
+  <link rel="icon" type="image/gif" href="Media/favicon.gif" />
+
+  <script src="JS/main.js"></script>
+  <script src="JS/utilities.js"></script>
+  <script src="JS/window.js"></script>
+  <script src="JS/loader.js"></script>
+  <script src="JS/particle.js"></script>
+</head>
+
+<body>
+  <div id="startWrapper">
+    <canvas id="mainCanvas">
+      Your browser does not support this website. Please use a more modern browser.
+    </canvas>
+    <div id="aboutWrapper" data-open='false'>
+      <div id="aboutHandle" class="menuHandle" data-open='false'>
+        <span class="lowText">About</span>
+      </div>
+      <div id="aboutInfoArea">
+        <p class="smallText firstText">College: Rochester Institute of Technology</p>
+        <p class="smallText firstText">Degree: Game Design and Development</p>
+        <p class="smallText firstText">GPA: 3.74</p>
+        <br/>
+        <p class="smallText secondText">Languages:</p>
+        <p class="smallText secondText">C++, C#, ES5/6/7/8</p>
+        <br/>
+        <p class="smallText secondText">Game Development Skills:</p>
+        <p class="smallText secondText">Quad/Oct-trees, Spatial Hashing, SAT, Dijkstra, A*, Optimization</p>
+        <p class="smallText secondText">Gameplay Programming, Environment Design, UI/UX Design, Game Design</p>
+        <br/>
+        <p class="smallText secondText">Web Skills:</p>
+        <p class="smallText secondText">Node.JS, React, MongoDB, Redis, ESLint, Babel</p>
+        <p class="smallText secondText">SASS, Gulp, HTML Canvas</p>
+      </div>
+    </div>
+    <div id="worksWrapper">
+      <span class="arrow" style="left: 15px;"></span>
+      <p>Works</p>
+      <span class="arrow" style="right: 15px;"></span>
+    </div>
+  </div>
+  <a href="https://herojam.io" title="HeroJam" target="_blank">
+    <div class="projectWrapper" data-hovertime="0" style="background-image: url('Media/HeroJam.png')">
+      <div class="projectInfo" data-active="false">
+        <p class="projectTitle">HeroJam</p>
+        <p class="smallText firstText">2017</p>
+        <p class="smallText secondText">Technology: ES5, Bootstrap</p>
+        <p class="smallText secondText">HeroJam hosts charity game jams committed to helping kids in hospitals around the world. We support Child's Play Charity, providing kids in hospitals with toys, books, and games.</p>
+      </div>
+    </div>
+  </a>
+  <a href="https://droppr-project.herokuapp.com" title="Droppr App" target="_blank">
+    <div class="projectWrapper" data-hovertime="0" style="background-image: url('Media/Droppr.jpg')">
+      <div class="projectInfo" data-active="false">
+        <p class="projectTitle">Droppr</p>
+        <p class="smallText firstText">2017</p>
+        <p class="smallText secondText">Technology: ES6, Node.JS, MongoDB, Babel, Nodemon</p>
+        <p class="smallText secondText">A basic project to experiment with advanced REST operations and database usage.</p>
+      </div>
+    </div>
+  </a>
+  <a href="https://paperballoons.herokuapp.com" title="Paper Balloons Game" target="_blank">
+    <div class="projectWrapper" data-hovertime="0" style="background-image: url('Media/PaperBalloons.jpg')">
+      <div class="projectInfo" data-active="false">
+        <p class="projectTitle">Paper Balloons</p>
+        <p class="smallText firstText">2017</p>
+        <p class="smallText secondText">Technology: ES6, Node.JS, Socket.io, Babel, Nodemon, HTML Canvas</p>
+        <p class="smallText secondText">A multiplayer experience using Web Sockets. Time was spent creating a polished feeling experience and experimenting with AI and flocking behaviors on a server.</p>
+      </div>
+    </div>
+  </a>
+  <a href="https://knick-knacks.herokuapp.com" title="Knick-Knacks Game" target="_blank">
+    <div class="projectWrapper" data-hovertime="0" style="background-image: url('Media/KnickKnacks.png')">
+      <div class="projectInfo" data-active="false">
+        <p class="projectTitle">Knick-Knacks</p>
+        <p class="smallText firstText">2017</p>
+        <p class="smallText secondText">Technology: ES6, Node.JS, Socket.io, Babel, Nodemon, HTML Canvas</p>
+        <p class="smallText secondText">A basic multiplayer experience using Web Sockets. All physics are calculated on the back-end.</p>
+      </div>
+    </div>
+  </a>
+  <a href="https://people.rit.edu/ljm1896/330/Assignments/AudioProject/Visualizer.html" title="Audio Visualizer" target="_blank">
+    <div class="projectWrapper" data-hovertime="0" style="background-image: url('Media/AudioVisualizer.png')">
+      <div class="projectInfo" data-active="false">
+        <p class="projectTitle">Audio Visualizer</p>
+        <p class="smallText firstText">2016</p>
+        <p class="smallText secondText">Technology: ES5, Web Audio, HTML Canvas</p>
+        <p class="smallText secondText">A project to create an appealing visualizer for audio. Most of the time spent was put into creating a visually appealing design.</p>
+      </div>
+    </div>
+  </a>
+  <a href="NBody/nbody.html" title="N-Body Simulator" target="_blank">
+    <div class="projectWrapper" data-hovertime="0" style="background-image: url('Media/NBody.png')">
+      <div class="projectInfo" data-active="false">
+        <p class="projectTitle">N-Body Simulator</p>
+        <p class="smallText firstText">2016</p>
+        <p class="smallText secondText">Technology: ES5, PIXI, Spatial Hashing</p>
+        <p class="smallText secondText">A web experience to create an N-body simulator. This simulates gravity and collisions accurately. Significant time was spent into optimization and creation of the spatial hashing algorithm.</p>
+      </div>
+    </div>
+  <!--
         <div class="projectWrapper">
             <div class="projectInfo">
                 <p class="projectTitle">Rogue Smith</p>
@@ -46,45 +118,6 @@
             </div>
         </div>
       -->
-        <a href="https://herojam.io" title="HeroJam" target="_blank">
-          <div class="projectWrapper" style="background-image: url('Media/HeroJam.png')">
-              <div class="projectInfo">
-                  <p class="projectTitle">HeroJam</p>
-                  <p class="smallText firstText">2017</p>
-                  <p class="smallText secondText">Nonprofit Charity GameJam</p>
-                  <p class="smallText secondText">Supports kids in hospitals around the world.</p>
-              </div>
-          </div>
-        </a>
-        <a href="https://knick-knacks.herokuapp.com" title="Knick-Knacks Game" target="_blank">
-          <div class="projectWrapper" style="background-image: url('Media/KnickKnacks.png')">
-              <div class="projectInfo">
-                  <p class="projectTitle">Knick-Knacks</p>
-                  <p class="smallText firstText">2017</p>
-                  <p class="smallText secondText">ES6</p>
-                  <p class="smallText secondText">Node.JS, Babel, Socket.io</p>
-              </div>
-          </div>
-        </a>
-        <a href="https://people.rit.edu/ljm1896/330/Assignments/AudioProject/Visualizer.html" title="Audio Visualizer" target="_blank">
-            <div class="projectWrapper" style="background-image: url('Media/AudioVisualizer.png')">
-                <div class="projectInfo">
-                    <p class="projectTitle">Audio Visualizer</p>
-                    <p class="smallText firstText">2016</p>
-                    <p class="smallText secondText">JavaScript</p>
-                    <p class="smallText secondText">HTML/CSS</p>
-                </div>
-            </div>
-        </a>
-        <a href="NBody/nbody.html" title="N-Body Simulator" target="_blank">
-            <div class="projectWrapper" style="background-image: url('Media/NBody.png')">
-                <div class="projectInfo">
-                    <p class="projectTitle">N-Body Simulator</p>
-                    <p class="smallText firstText">2016</p>
-                    <p class="smallText secondText">JavaScript</p>
-                    <p class="smallText secondText">HTML/CSS</p>
-                </div>
-            </div>
-        </a>
-    </body>
+  </a>
+</body>
 </html>
