@@ -56,11 +56,14 @@ site.Window = {
       this.particles.push(p);
     }
 
-    this.update();
+    this.updateBind = this.update.bind(this);
+    this.updateBind();
   },
+  
+  updateBind: undefined,
 
   update: function () {
-    this.animationID = requestAnimationFrame(this.update.bind(this));
+    this.animationID = requestAnimationFrame(this.updateBind);
 
     this.dt = this.calculateDeltaTime();
 
@@ -77,9 +80,9 @@ site.Window = {
       timeH += site.Window.dt;
       elem.dataset.hovertime = timeH;
       
-      if (elem.dataset.hovertime >= 2) {
+      if ((window.devicePixelRatio <= 1 && elem.dataset.hovertime >= 2) || (window.devicePixelRatio > 1 && elem.dataset.hovertime >= 1)) {
         elem.classList = 'projectWrapper active';
-        elem.dataset.hovertime = 3;
+        elem.dataset.hovertime = 2;
         elem.querySelector('.projectInfo').dataset.active = true;
       }
     });
@@ -95,6 +98,29 @@ site.Window = {
         elem.querySelector('.projectInfo').dataset.active = false;
       }
     });
+    
+    if (window.devicePixelRatio > 1) {
+      var position = document.scrollingElement.scrollTop;
+      var bottomPos = position + window.innerHeight;
+      
+      document.querySelectorAll('.projectWrapper').forEach(function (elem) {
+        if (elem.offsetTop > position && (elem.offsetTop + elem.clientHeight) < bottomPos) {
+          if (elem.classList.contains('active')) {
+            elem.dataset.hovertime = 5;
+            elem.classList = 'projectWrapper active';
+          } else if (elem.classList != 'projectWrapper curhovered') {
+            elem.classList = 'projectWrapper curhovered';
+          }
+        }
+        else {
+          if (elem.classList.contains('active')) {
+            elem.classList = 'projectWrapper endhovered active';
+          } else if (elem.classList != 'projectWrapper') {
+            elem.classList = 'projectWrapper endhovered';
+          }
+        }
+      });
+    }
   },
 
   draw: function (ctx) {
@@ -111,9 +137,9 @@ site.Window = {
     }
     ctx.restore();
 
-    drawText(this.ctx, 'Luke Miller', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500), 'normal small-caps 300 4.5em Lato', 'rgb(255, 255, 255)');
-    drawText(this.ctx, 'Game Developer | Web Developer', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500) + 75, 'normal normal 300 1.85em Lato', 'rgb(255, 255, 255)');
-    drawText(this.ctx, 'ljm1896@rit.edu', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500) + 105, 'normal normal 300 1em Lato', 'rgb(255, 255, 255)');
+    drawText(this.ctx, 'Luke Miller', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500), 'normal small-caps 300 4.5em Lato, Arial, sans-serif', 'rgb(255, 255, 255)');
+    drawText(this.ctx, 'Game Developer | Web Developer', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500) + 75, 'normal normal 300 1.75em Lato, Arial, sans-serif', 'rgb(255, 255, 255)');
+    drawText(this.ctx, 'lukemillergames@gmail.com', this.canvas.width / 2, clamp(this.canvas.height / 2 - 50, 100, 500) + 105, 'normal normal 300 1em Lato, Arial, sans-serif', 'rgb(255, 255, 255)');
     //drawText(this.ctx, 'Site under construction', this.canvas.width / 2, 15, 'normal normal 300 0.7em Lato', 'rgb(255, 255, 255)');
   },
 

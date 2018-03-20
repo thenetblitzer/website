@@ -17,8 +17,8 @@ function menuHandler() {
 
 /// Resize function
 function resize() {
-  document.querySelector('#mainCanvas').width = Math.min(1440, window.innerWidth); //clamp(window.innerWidth, 0, 1280);
-  document.querySelector('#mainCanvas').height = window.innerHeight;
+  document.querySelector('#mainCanvas').width = Math.min(1440, window.innerWidth) / window.devicePixelRatio; //clamp(window.innerWidth, 0, 1280);
+  document.querySelector('#mainCanvas').height = window.innerHeight / window.devicePixelRatio;
 
   var newCenter = {
     x: document.querySelector('#mainCanvas').width / 2,
@@ -73,7 +73,7 @@ function getMouse(e, elem) {
 ///  smooth scrolling function
 function scrollTo(elem) {
   
-  var start = document.body.scrollTop;
+  var start = document.scrollingElement.scrollTop;
   var goal = elem.offsetTop;
   var time = 0;
   var t = 0;
@@ -81,7 +81,10 @@ function scrollTo(elem) {
   var goToBind = function goTo () {
     var y = lerp(start, goal, t);
     
+    //document.scrollingElement.scrollTop = y;
+    //document.body.scrollTop = document.scrollingElement.scrollTop;
     document.body.scrollTop = y;
+    
     
     t = time*time*time * (time * (6 * time - 15) + 10);
     time += site.Window.dt;

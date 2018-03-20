@@ -4,7 +4,7 @@ body {
   margin: 0;
   background: #363831;
   overflow-x: hidden;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Lato', 'Arial', sans-serif;
   font-weight: 400;
   color: white;
 }
@@ -53,6 +53,8 @@ a {
   overflow: visible;
   transition: bottom 1s;
   transition-delay: 0s;
+  font-size: 1em;
+  font-weight: 300;
 }
 
 #aboutWrapper .firstText {
@@ -92,9 +94,10 @@ a {
 
 #aboutHandle {
   position: absolute;
-  width: 100%;
+  width: 100px;
   height: 25px;
   bottom: -25px;
+  left: 90px;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.0);
   cursor: pointer;
@@ -136,12 +139,13 @@ a {
   left: calc(50% - 60px);
   background: transparent;
   cursor: pointer;
+  font-size: 1em;
 }
 
 #worksWrapper p {
   position: absolute;
-  width: 120px;
-  height: 25px;
+  width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   bottom: 0;
@@ -153,7 +157,7 @@ a {
   position: absolute;
   height: 8px;
   width: 8px;
-  transform: rotate(45deg) scale(1);
+  transform: rotate(-135deg) scale(1);
   margin: 0;
   padding: 0;
   bottom: 12px;
@@ -190,7 +194,7 @@ a:last-child .projectWrapper {
 .projectInfo {
   position: relative;
   width: calculate(100vw - 80px);
-  height: 100%;
+  height: 450px;
   background: rgba(0, 0, 0, 0);
   opacity: 1;
   color: white;
@@ -235,7 +239,6 @@ a:last-child .projectWrapper {
 .projectInfo .firstText {
   margin: 0;
   margin-top: 8px;
-  margin-bottom: 200px;
   margin-left: -30px;
   opacity: 0;
   font-size: 1.5em;
@@ -256,21 +259,104 @@ a:last-child .projectWrapper {
   transition-delay: 0.9s;
 }
 
-.projectInfo .secondText {
-  margin: 0;
-  width: 50%;
+.projectInfo .description {
+  position: absolute;
+  bottom: 30px;
+  width: 70%;
   max-width: 720px;
-  margin-top: 6px;
-  margin-left: -30px;
+  max-height: 300px;
+  overflow: auto;
+  left: 30px;
   opacity: 0;
-  font-size: 1.2em;
-  font-weight: 300;
   transition: all 1s;
   transition-delay: 0s;
 }
 
-.projectInfo[data-active="true"] .secondText {
-  margin-left: 50px;
+.projectInfo .secondText {
+  margin: 0;
+  margin-top: 6px;
+  font-size: 1em;
+  font-weight: 300;
+}
+
+.viewMore {
+  position: absolute;
+  text-align: right;
+  margin: 0;
+  bottom: 10px;
+  right: 30px;
+  font-size: 1.2em;
+  font-weight: 300;
+  opacity: 0;
+  transition: all 1s;
+  transition-delay: 0s;
+}
+
+.projectInfo[data-active="true"] .description {
   opacity: 1;
+  left: 50px;
   transition-delay: 1.2s;
+}
+.projectInfo[data-active="true"] .viewMore  {
+  opacity: 1;
+  bottom: 30px;
+  transition-delay: 1.2s;
+}
+
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and  (-webkit-min-device-pixel-ratio: 2) {
+  #aboutWrapper {
+    font-size: 1.5em;
+    width: 700px;
+    height: 600px;
+  }
+  
+  #worksWrapper {
+    width: 220px;
+    left: calc(50vw - 110px);
+    font-size: 1.5em;
+    height: 30px;
+    bottom: 30px;
+  }
+  
+  .arrow {
+    height: 15px;
+    width: 15px;
+    border-width: 4px;
+  }
+  
+  #aboutWrapper br {
+    margin: 0;
+    padding: 0;
+    height: 5px;
+    font-size: 0.5em;
+  }
+  
+  #aboutInfoArea {
+    height: 520px;
+  }
+  
+  #aboutHandle {
+    height: 30px;
+  }
+  
+  #aboutHandle[data-open = "true"] {
+    bottom: 30px;
+  }
+  
+  #aboutWrapper[data-open = "true"] {
+    bottom: 0px;
+  }
+  
+  #aboutWrapper[data-open = "false"] {
+    bottom: -600px;
+  }
+  
+  #aboutWrapper[data-open = "false"] #aboutHandle{
+    bottom: 630px;
+  }
+  
+  .viewMore {
+    font-size: 1.6em;
+  }
 }

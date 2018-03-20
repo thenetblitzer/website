@@ -39,7 +39,7 @@ site.main = {
   
 var projectStartHover = function (e) {
   if (e.target.classList.contains('active')) {
-    e.target.dataset.hovertime = 5;
+    e.target.dataset.hovertime = 3;
     e.target.classList = 'projectWrapper active';
   } else {
     e.target.classList = 'projectWrapper curhovered';
