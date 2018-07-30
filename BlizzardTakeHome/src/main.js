@@ -274,8 +274,6 @@ const parseItem = (xhr, itemContainer, callback) => {
   // Parse the response.
   const response = JSON.parse(xhr.responseText);
   
-  console.dir(response);
-  
   // Go through the item and fill out its container's attributes.
   itemContainer.querySelector('.itemName').innerHTML = '(' + response.requiredLevel + ') ' + response.name;
   itemContainer.querySelector('.itemIcon').src = 'https://wow.zamimg.com/images/wow/icons/large/' + response.icon + '.jpg';
