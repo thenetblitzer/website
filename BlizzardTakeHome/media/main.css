@@ -1,0 +1,472 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  color: #fff;
+  font-weight: 300;
+  font-size: 16pt;
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+div {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+#siteContainer {
+  height: 100%;
+  width: 100%;
+}
+
+#backdropContainer {
+  height: 100%;
+  width: 100%;
+  
+  top: 0;
+  left: 0;
+  
+  background: grey;
+}
+
+#backdrop {
+  height: 100%;
+  width: 100%;
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#mainContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+}
+
+
+/* Search Container CSS */
+
+#searchContainer {
+  width: 358px;
+  
+  margin-top: 78px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#searchContainer #logo {
+  position: relative;
+  max-width: 308px;
+  width: 90%;
+  
+  margin-bottom: 0;
+  padding: 0;
+  transform: translateX(-50%);
+  left: 50%;
+}
+
+#searchContainer form {
+  margin: 0;
+  margin-top: 40px;
+  padding: 0;
+}
+
+.searchField {
+  display: inline-block;
+  height: 38px;
+  width: 100%;
+  
+  margin-top: 0;
+  margin-bottom: 17px;
+  padding: 0 22px;
+  
+  outline: none;
+  color: #5c5f6c;
+  background-color: #0b122f;
+  border: 1px solid #ae9b76;
+  
+  transition: all 0.3s;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+.searchField::placeholder {
+  color: #5c5f6c;
+  transition: all 0.3s;
+}
+
+.searchField:focus {
+  color: #ddd;
+  border-color: #edbb6e;
+}
+
+.searchField:focus::placeholder {
+  color: #ddd;
+}
+
+#searchSubmit {
+  height: 38px;
+  width: 100%;
+  
+  border: none;
+  color: #ffffff;
+  background-color: #148981;
+  background-color: linear-gradient(top, #148981 0%, #3f7a8b 100%);
+  background-color: -moz-linear-gradient(top, #148981 0%, #3f7a8b 100%);
+  background-color: -webkit-linear-gradient(top, #148981 0%, #3f7a8b 100%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  
+  outline: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+#searchSubmit:hover {
+  background-color: #159184;
+  background-color: linear-gradient(top, #159184 0%, #448293 100%);
+  background-color: -moz-linear-gradient(top, #159184 0%, #448293 100%);
+  background-color: -webkit-linear-gradient(top, #159184 0%, #448293 100%);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#searchSubmit:active {
+  background-color: #137F72;
+  background-color: linear-gradient(top, #137F72 0%, #3B717F 100%);
+  background-color: -moz-linear-gradient(top, #137F72 0%, #3B717F 100%);
+  background-color: -webkit-linear-gradient(top, #137F72 0%, #3B717F 100%);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#formErrorMessage {
+  position: absolute;
+  display: block;
+  width: 100%;
+  
+  padding: 5px 0;
+  
+  text-align: center;
+  background: -moz-linear-gradient(left, rgba(11, 18, 48, 0) 0%, rgba(11, 18, 48, 0.65) 15%, rgba(11, 18, 48, 0.65) 85%, rgba(11, 18, 48, 0) 100%);
+  background: -webkit-linear-gradient(left, rgba(11, 18, 48, 0) 0%,rgba(11, 18, 48, 0.65) 15%,rgba(11, 18, 48, 0.65) 85%,rgba(11, 18, 48, 0) 100%);
+  background: linear-gradient(to right, rgba(11, 18, 48, 0) 0%,rgba(11, 18, 48, 0.65) 15%,rgba(11, 18, 48, 0.65) 85%,rgba(11, 18, 48, 0) 100%);
+  
+  transition: all 0.5s;
+  cursor: default;
+}
+
+#formErrorMessage[data-faded="true"] {
+  opacity: 0;
+}
+
+#formErrorMessage[data-faded="false"] {
+  opacity: 1;
+  
+  transition: all 0.25s;
+}
+
+#formErrorMessage[data-error="false"] {
+  color: #fff;
+}
+
+#formErrorMessage[data-error="true"] {
+  color: #f22;
+}
+
+
+/* Player Container CSS */
+
+#playerContainer {
+  display: flex;
+  justify-content: center;
+  
+  min-height: 583px;
+  width: 100%;
+  
+  margin-top: 85px;
+  
+  background: rgba(11, 18, 47, 0.65);
+  border: 1px solid #021a32;
+  border-left: none;
+  border-right: none;
+}
+
+#playerInfoContainer {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  
+  border: 1px solid rgba(255, 255, 255, 0.21);
+  border-left: none;
+  border-right: none;
+}
+
+#name {
+  position: absolute;
+  
+  margin: 15px auto;
+  
+  font-size: 40pt
+}
+
+#clearButton {
+  position: absolute;
+  height: 30px;
+  width: 100px;
+  
+  right: 0;
+  top: -60px;
+  padding-top: 2px;
+  
+  color: #fff;
+  background-color: #148981;
+  background-color: linear-gradient(top, #148981 0%, #3f7a8b 100%);
+  background-color: -moz-linear-gradient(top, #148981 0%, #3f7a8b 100%);
+  background-color: -webkit-linear-gradient(top, #148981 0%, #3f7a8b 100%);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14pt;
+  text-align: center;
+  vertical-align: baseline;
+  
+  outline: none;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+#clearButton:hover {
+  background-color: #159184;
+  background-color: linear-gradient(top, #159184 0%, #448293 100%);
+  background-color: -moz-linear-gradient(top, #159184 0%, #448293 100%);
+  background-color: -webkit-linear-gradient(top, #159184 0%, #448293 100%);
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+#clearButton:active {
+  background-color: #137F72;
+  background-color: linear-gradient(top, #137F72 0%, #3B717F 100%);
+  background-color: -moz-linear-gradient(top, #137F72 0%, #3B717F 100%);
+  background-color: -webkit-linear-gradient(top, #137F72 0%, #3B717F 100%);
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+#leftSideInfoContainer {
+  width: 606px;
+  margin-right: 34px;
+}
+
+#centerInfoContainer {
+  width: 303px;
+  margin-right: 34px;
+}
+
+#rightSideInfoContainer {
+  width: 606px;
+}
+
+.infoContainer {
+  height: 534px;
+  margin-top: 101px;
+  margin-bottom: 46px;
+  
+  background: rgba(14, 22, 38, 0.9);
+  border: 0px solid black;
+  border-radius: 7.5px;
+}
+
+.attributesContainer {
+  display: inline-block;
+  height: 100%;
+  width: 234px;
+  
+  margin-left: 46px;
+  
+  vertical-align: top;
+}
+
+.infoMain {
+  margin-top: 41px;
+  
+  color: #fff;
+  font-weight: 700;
+  font-size: 14pt;
+}
+
+.infoSub {
+  margin-top: 13px;
+  
+  color: #d7a12e;
+  font-size: 13pt;
+  line-height: 17px;
+}
+
+.infoSub em {
+  float: right;
+  font-size: 13pt;
+  font-style: normal;
+}
+
+#centerAttributesContainer {
+  position: absolute;
+  width: 100%;
+  
+  padding: 0 46px;
+  bottom: 46px;
+}
+
+#playerAvatarContainer {
+  height: 303px;
+  width: 303px;
+}
+
+#playerAvatar {
+  height: 257px;
+  width: 211px;
+  
+  margin: 46px auto;
+  
+  border: 1px solid rgba(255, 255, 255, 0.21);
+  background: #000;
+  background-size: cover;
+  background-position: center;
+}
+
+#rightSideInfoContainer .infoMain {
+  margin-top: 23px;
+  margin-left: 23px;
+}
+
+
+/* Item CSS */
+
+.itemListContainer {
+  display: flex;
+  flex-flow: column wrap;
+  
+  height: 100%;
+  width: 100%;
+  
+  padding: 23px;
+  padding-top: 10px;
+}
+
+.itemContainer {
+  display: block;
+  height: 44px;
+  width: 268px;
+  
+  margin-bottom: 8px;
+  margin-right: 23px;
+  padding: 2px;
+  
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  font-size: 10pt;
+  transition: all 1s;
+}
+
+.itemContainer[data-visible="true"] {
+  opacity: 1;
+}
+
+.itemContainer[data-visible="false"] {
+  opacity: 0;
+}
+
+.itemContainer .itemIcon {
+  position: absolute;
+  height: 38px;
+  width: 38px;
+  
+  margin-top: 1px;
+  
+  background: #000;
+  background-size: contain;
+  background-position: center;
+}
+
+.itemContainer p {
+  position: absolute;
+  
+  margin: 0;
+  padding: 0;
+}
+
+.itemContainer .itemName {
+  top: 3px;
+  left: 44px;
+  
+  font-size: 13pt;
+  
+  width: 219px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.itemName.poorQuality, .itemName.Quality0 {color: #9d9d9d}
+.itemName.commonQuality, .itemName.Quality1 {color: #fff}
+.itemName.uncommonQuality, .itemName.Quality2 {color: #1eff00}
+.itemName.rareQuality, .itemName.Quality3 {color: #0070dd}
+.itemName.epicQuality, .itemName.Quality4 {color: #a335ee}
+.itemName.legendaryQuality, .itemName.Quality5 {color: #ff8000}
+.itemName.artifactQuality, .itemName.Quality6 {color: #e6cc80}
+.itemName.heirloomQuality, .itemName.Quality7, .itemName.Quality8 {color: #0cf}
+
+.itemContainer .itemLevel {
+  top: 24px;
+  left: 46px;
+  
+  color: #ccc;
+  font-size: 9pt;
+}
+
+.itemContainer .itemBuy {
+  top: 24px;
+  left: 50px;
+  
+  color: #ccc;
+  font-size: 8pt;
+}
+
+.itemContainer .itemSell {
+  top: 24px;
+  right: 4px;
+  
+  color: #ccc;
+  font-size: 8pt;
+}
+
+span.money {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  
+  padding: 0;
+  margin-left: 3px;
+  margin-right: 1px;
+  
+  background-position: center;
+  background-size: contain;
+}
+
+.copper {
+  background-image: url("media/Copper.png");
+}
+
+.silver {
+  background-image: url("media/Silver.png");
+}
+
+.gold {
+  background-image: url("media/Gold.png");
+}
