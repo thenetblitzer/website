@@ -1,0 +1,27 @@
+.main {
+  color: white;
+}
+
+.slick-slider>button::before {
+  transition: all 0.25s;
+}
+
+div.slick-list {
+  height: 100%;
+  background: black;
+  box-shadow: 0 0 3px 0 #000;
+
+  div.slick-track {
+    display: flex;
+    align-items: center;
+  }
+
+  .slick-slide img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .slick-slide:not(.slick-active) {
+    pointer-events: none;
+  }
+}

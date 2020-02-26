@@ -1,0 +1,101 @@
+@use 'overrides';
+@use 'theme';
+@use 'shared';
+
+@use 'projects';
+@use 'resume';
+@use 'about';
+@use 'home';
+
+@import url('https://fonts.googleapis.com/css?family=Lato:300,400,400i,700&display=swap');
+
+div {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: theme.$background;
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+}
+
+.App {
+  width: 100vw;
+  min-height: 100vh;
+  margin: auto;
+
+  box-shadow: 0 0 12px 0 #000;
+}
+
+nav.nav-wrapper {
+  position: fixed;
+  width: 100vw;
+  z-index: 1000;
+  background: theme.$border;
+  box-shadow: 0 0 6px 0 #000;
+
+  >div {
+    max-width: theme.$breakpointLG;
+    margin: auto;
+  }
+  .logo-tab {
+    margin-right: auto; 
+  }
+  .mobile-menu-tab {
+    min-width: inherit;
+    padding-right: 20px;
+  }
+}
+
+footer.footer-wrapper {
+  height: 32px;
+  background: theme.$border;
+  box-shadow: 0 0 6px 0 #000;
+  z-index: 1000;
+
+  .footer-inner-container {
+    display: flex;
+    height: 100%;
+    max-width: theme.$breakpointLG;
+    margin: auto;
+    padding-top: 4px;
+    color: theme.$textDim;
+
+    span:first-child {
+      margin-left: auto;
+    }
+    a:last-child {
+      margin-right: auto;
+    }
+    .spacer {
+      margin: 0 8px;
+    }
+    a {
+      color: theme.$linkDark;
+      text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: theme.$breakpointMD) {
+  footer.footer-wrapper{
+    height: 24px;
+
+    .footer-inner-container span, .footer-inner-container a {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+@media (max-width: theme.$breakpointSM) {
+  footer.footer-wrapper{
+    height: 20px;
+    padding-top: 0;
+
+    .footer-inner-container span, .footer-inner-container a {
+      font-size: 0.6rem;
+    }
+  }
+}

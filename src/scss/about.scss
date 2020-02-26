@@ -1,0 +1,38 @@
+@use 'theme';
+
+.about-wrapper {
+  .about-inner-wrapper {
+    max-width: theme.$breakpointMD;
+    margin: auto;
+    padding-bottom: 16px;
+  }
+  .about-profile-picture {
+    display: block;
+    width: 50%;
+    margin: auto;
+    padding: 32px 0 16px;
+  }
+  .about-text {
+    padding: 16px;
+    color: theme.$textBright;
+    font-weight: 300;
+  }
+}
+
+@media (max-width: theme.$breakpointMD) {
+  .about-wrapper {
+    .about-profile-picture {
+      width: calc(100vh - 64px);
+      max-width: theme.$breakpointSM;
+    }
+  }
+}
+
+@media (max-width: theme.$breakpointSM) {
+  .about-wrapper {
+    .about-profile-picture {
+      width: calc(100vh - 64px);
+      max-width: calc(100vw - 64px);
+    }
+  }
+}

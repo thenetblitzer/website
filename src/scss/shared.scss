@@ -1,0 +1,81 @@
+@use 'theme';
+
+.tab-panel-wrapper {
+  min-height: calc(100vh - 80px);
+  padding-top: 48px;
+}
+
+.resume-wrapper,
+.about-wrapper,
+.home-wrapper,
+.projects-wrapper {
+  min-height: inherit;
+  height: 100%;
+  max-width: theme.$breakpointLG;
+  margin: auto;
+  background: theme.$wrapperBackground;
+  box-shadow: 0 0 6px 0 #000 inset;
+}
+
+.dark-text {
+  color: theme.$textDark;
+}
+.bright-text {
+  color: theme.$textBright;
+}
+
+.loading-block-wrapper, 
+.error-boundary-wrapper {
+  display: flex;
+  min-height: inherit;
+  min-width: inherit;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  font-weight: 300;
+  text-align: center;
+}
+
+.error-boundary-wrapper {
+  color: theme.$textBright;
+
+  .error-boundary-inner {
+    padding: 16px;
+  }
+  h4 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  p {
+    margin: 0;
+    padding-top: 12px;
+    font-size: 1.1rem;
+  }
+  button {
+    min-width: 96px;
+    margin-top: 8px;
+    background: theme.$linkDark;
+    &:hover {
+      background: theme.$linkDark;
+    }
+  }
+}
+
+.loading-block-wrapper .loading-block-inner h4 {
+  margin: 12px;
+  font-weight: 300;
+  font-size: 1.5rem;
+}
+
+@media (max-width: theme.$breakpointMD) {
+  .tab-panel-wrapper {
+    min-height: calc(100vh - 72px);
+  }
+}
+
+@media (max-width: theme.$breakpointSM) {
+  .tab-panel-wrapper {
+    min-height: calc(100vh - 68px);
+  }
+}

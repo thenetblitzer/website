@@ -1,0 +1,205 @@
+@use 'theme';
+
+.projects-wrapper .project-panel-wrapper {
+  border-bottom: 2px solid theme.$border;
+  color: theme.$textBright;
+
+  .project-panel-header {
+    height: 240px;
+    padding: 0;
+    align-items: start;
+
+    background-position-x: 100%;
+    background-position-y: center;
+    background-size: 60%;
+    transition: height 0.25s;
+    
+    >div {
+      height: 100%;
+      padding: 12px 24px;
+      background: linear-gradient(to right, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0));
+    }
+
+    &.panel-expanded {
+      height: 120px;
+
+      .project-expansion-key,
+      .project-short-description {
+        height: 0;
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
+  }
+  .project-title {
+    margin-top: 6px;
+    line-height: 2rem;
+    font-size: 2rem;
+    font-weight: 300;
+    color: theme.$textBright;
+  }
+  .project-date {
+    margin-top: 4px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    color: theme.$textDim;
+  }
+  .project-short-description {
+    width: 40%;
+    margin: 32px 0 0;
+    font-size: 1rem;
+    color: theme.$textDim;
+    transition: all 0.2s;
+  }
+  .project-expansion-key {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 16px;
+    font-size: 1.1rem;
+    font-weight: 300;
+  }
+
+  .project-panel-content {
+    background: theme.$border;
+    box-shadow: 0 0 6px 0 #000 inset;
+  }
+  .project-content-information {
+    height: max-content;
+    width: 100%;
+    margin: 16px 0 0;
+    background: theme.$wrapperBackground;
+    box-shadow: 0 0 6px 0 #000;
+    font-weight: 300;
+  }
+  .project-content-media {
+    position: relative;
+    float: right;
+    width: 50%;
+    margin: 16px;
+    padding: 0 24px;
+
+    &:hover button.media-slider-fullscreen-button {
+      opacity: 1;
+    }
+  }
+  .project-text-box {
+    padding: 12px 12px 0;
+  }
+  .project-long-description {
+    span {
+      display: block;
+      font-size: 1.25rem;
+      padding-bottom: 4px;
+    }
+    p {
+      margin: 4px 0;
+    }
+  }
+  .project-link {
+    font-size: 1.25rem;
+    a {
+      color: theme.$linkColor;
+      text-decoration: none;
+    }
+  }
+  .project-tech-list-wrapper {
+    padding-bottom: 12px;
+    span {
+      font-size: 1.25rem;
+      color: theme.$textBright;
+    }
+    .project-tech-list {
+      margin: 0;
+      padding: 4px 24px;
+    }
+  }
+}
+
+
+button.media-slider-fullscreen-button {
+  position: absolute;
+  bottom: 0;
+  right: 32px;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  background: rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  color: theme.$textDim;
+  border: none;
+  cursor: pointer;
+  transition: opacity 0.25s;
+  
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    transition: color 0.15s;
+  }
+
+  &:hover {
+    color: theme.$textBright;
+  }
+}
+
+.media-slider-fullscreen-wrapper {
+  display: flex;
+  position: relative;
+  width: calc(100vw - 64px);
+  height: calc(100vh - 64px);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  .media-slider-fullscreen-inner {
+    position: relative;
+    margin-right: 64px;
+    box-shadow: 0px 11px 15px -7px rgba(0,0,0,0.2),0px 24px 38px 3px rgba(0,0,0,0.14),0px 9px 46px 8px rgba(0,0,0,0.12);
+    z-index: 10000;
+  }
+
+  button.media-slider-fullscreen-button {
+    right: -32px;
+    opacity: 1;
+  }
+
+  .media-slider-fullscreen {
+    margin: 0 32px;
+  }
+}
+
+@media (max-width: theme.$breakpointMD) {
+  .projects-wrapper .project-panel-wrapper {
+    .project-panel-header {
+      height: 120px;
+
+      >div {
+        align-items: baseline;
+      }
+    }
+
+    .project-title,
+    .project-date {
+      display: inline-block;
+    }
+    .project-title {
+      font-size: 1.5rem;
+    }
+    .project-expansion-key,
+    .project-date {
+      font-size: 0.9rem;
+    }
+
+    .project-content-media {
+      float: none;
+      width: calc(100% - 32px);
+    }
+  }
+  
+  button.media-slider-fullscreen-button {
+    right: 40px;
+    width: 32px;
+    height: 32px;
+    opacity: 1;
+  }
+}
