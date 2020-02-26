@@ -172,7 +172,7 @@ class App extends Component {
               &copy; 2020 Luke Miller
             </span>
             <span className="spacer">|</span>
-            <a>
+            <a href="mailto:lukemillergames@gmail.com">
               lukemillergames@gmail.com
             </a>
             <span className="spacer">|</span>
