@@ -19,8 +19,6 @@ class MediaSlider extends React.Component {
   }
 
   onResize = (w, h) => {
-    const { fullscreen } = this.state
-
     const width = w - (w % 16)
     const height = (width / 16) * 9
     
@@ -65,10 +63,14 @@ class MediaSlider extends React.Component {
       default:
       case "image":
         mediaElement = (
-          <div key={key}>
+          <div className="media-slide-container" key={key}>
             <img 
               src={mediaObj.source} 
               alt={mediaObj.alt || ""} 
+              style={{
+                maxWidth: `${w}px`,
+                maxHeight: `${h}px`,
+              }}
             />
           </div>
         )
