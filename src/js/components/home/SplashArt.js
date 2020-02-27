@@ -421,7 +421,9 @@ class SplashArt extends Component {
         // Empty case.
     }
     
-    requestAnimationFrame(this.mainAnimationCycle)
+    if (updatedCycleStage !== 3) {
+      requestAnimationFrame(this.mainAnimationCycle)
+    }
 
     this.setState({
       cycleStage: updatedCycleStage,
