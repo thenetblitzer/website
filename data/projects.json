@@ -2,6 +2,7 @@
   "projects": [
     {
       "title": "RealPlates",
+      "expandable": true,
       "dateType": "range",
       "date": {
         "start": "November 2019",
@@ -11,14 +12,15 @@
         "start": "Nov. 2019",
         "end": "Present"
       },
+      "role": "Programmer & Designer",
       "shortDescription": "RealPlates is an exploration in planet-scale procedural terrain generation through the use of accurately simulated plate tectonics in real time.",
       "longDescription": "RealPlates stems from my interest in procedural work and interests in geological processes and terrain. In order to get all these interests to work in one project, I decided to work on plate tectonic simulation.\nThis project involves large amounts of research into the geological processes that occur on the Earth and our theories of them. It came as a surprise to me just how little we know and how recent the topic was, providing quite a bit of difficulty in making simulations accurate. Another large consideration to the project is performance; simulating large scale geological processes is computationally expensive so careful considerations and compromises have to be taken.\nThe project may lead to testing with new game ideas in the future. There's also the possibility of adding in climate and erosion into the terrain generation to create even more realism.",
       "headerImage": "/images/realplates-header.jpg",
-      "headerSize": "100%",
       "media": [
         {
           "type": "image",
-          "source": "/images/realplates-image-1.jpg"
+          "source": "/images/realplates-image-1.jpg",
+          "alt": "A rough planet broken into tectonic plates."
         }
       ],
       "technologies": [
@@ -29,6 +31,7 @@
     },
     {
       "title": "HeroJam",
+      "expandable": true,
       "dateType": "range",
       "date": {
         "start": "December 2016",
@@ -38,26 +41,23 @@
         "start": "Dec. 2016",
         "end": "Jan. 2019"
       },
+      "role": "Owner",
       "link": "http://www.herojam.io",
       "linkShort": "www.herojam.io",
       "shortDescription": "HeroJam was a charity game jam run several times at RIT committed to helping kids in hospitals around the world through Child's Play Charity. In total over $4,000 was raised with more than 100 students participating.",
-      "longDescription": "In my sophomore year I wanted to bring Child's Play Charity to RIT while also encouraging more student-run events in the major. After working with the Interactive Games and Media department for over a semester, I was given the go-ahead to run the first HeroJam in the spring of 2017.\nMy work with HeroJam included web development, sourcing sponsorships, getting volunteers, working with campus departments, and of course running the event. The first HeroJam had over 40 participants and 70 people sign up and together they raised over $900. The next year I ran the event again and had over 60 participants with more than 100 applicants, including from other nearby colleges. The amount raised far surpassed expectations with more than $3,100 donated to Child's Play.\nSponsorships included Microsoft, Bungie, MAGIC Spell Studios, RIT, RIT Interactive Games and Media, and Dunkin Donuts.",
+      "longDescription": "During my stay at RIT I wanted to bring Child's Play Charity to the college while also encouraging more student-run events in the Game Design and Development program. After working with the Interactive Games and Media department for over a semester, I was given the go-ahead to run the first HeroJam in the spring of 2017.\nMy work with HeroJam included web development, sourcing sponsorships, getting volunteers, working with campus departments, and of course running the event. The first HeroJam had over 40 participants and 70 people sign up and together they raised over $900. The next year I ran the event again and had over 60 participants with more than 100 applicants, including from other nearby colleges. The amount raised far surpassed expectations with more than $3,100 donated to Child's Play.\nSponsorships included Microsoft, Bungie, MAGIC Spell Studios, RIT, RIT Interactive Games and Media, and Dunkin Donuts.",
       "headerImage": "/images/herojam-header.jpg",
       "media": [
         {
           "type": "image",
           "source": "/images/herojam.png",
-          "alt": "The logo of HeroJam."
+          "alt": "HeroJam logo."
         }
-      ],
-      "technologies": [
-        "Unity Game Engine",
-        "C#",
-        "HLSL"
       ]
     },
     {
       "title": "Project Smith",
+      "expandable": true,
       "dateType": "range",
       "date": {
         "start": "January 2018",
@@ -67,10 +67,10 @@
         "start": "Jan. 2018",
         "end": "May 2018"
       },
+      "role": "Team Lead, Lead Programmer, Lead Designer",
       "shortDescription": "Project Smith was an expirimental 3D adventure game where the player had the ability to completely design and create their own weapons.",
       "longDescription": "Project Smith was a semester long project to create an action-adventure game that allowed the player full customizability over the weapons they use. I led a team of up to 15 other students on the project, as well as led development and design. This included writing the mesh modification and expansion code from the ground up.",
       "headerImage": "/images/project-smith-header.jpg",
-      "headerSize": "100%",
       "media": [
         {
           "type": "image",
@@ -90,6 +90,7 @@
     },
     {
       "title": "Fragile Equilibrium",
+      "expandable": true,
       "dateType": "range",
       "date": {
         "start": "August 2017",
@@ -99,13 +100,12 @@
         "start": "Aug. 2017",
         "end": "Dec. 2017"
       },
+      "role": "Gameplay Programmer",
       "link": "https://www.fragileequilibrium.net/",
       "linkShort": "www.fragileequilibrium.net",
       "shortDescription": "Fragile Equilibrium was a game developed and released by MAGIC Spell Studios in 2019. The game was a shoot-em up focusing on balancing two different attacking forces.",
       "longDescription": "Fragile Equilibrium was a shoot-em up about balancing the opposing forces of the enemies in front of you and the breaking of the game world behind you. I participated during the game's initial development, developing the player, all of the enemy AI, implementing and developing the animation controls, and the level loader and generator.",
       "headerImage": "/images/fragile-eq-header.png",
-      "headerSize": "74%",
-      "headerXPos": "135%",
       "media": [
         {
           "type": "video",
@@ -128,38 +128,19 @@
       ]
     },
     {
-      "title": "Droppr",
-      "dateType": "single",
-      "date": {
-        "date": "2017"
-      },
-      "link": "https://droppr-project.herokuapp.com/",
-      "linkShort": "droppr-project.herokuapp.com",
-      "shortDescription": "Droppr was a class project to develop a fast image sharing site, allowing you to quickly post images and descriptions for everyone to see.",
-      "headerImage": "/images/droppr-header.jpg",
-      "media": [
-        {
-          "type": "image",
-          "source": "/images/droppr-image.jpg",
-          "alt": "The final opening screen for the project."
-        }
-      ],
-      "technologies": [
-        "Node.JS",
-        "Redis",
-        "MongoDB",
-        "ES6/7"
-      ]
-    },
-    {
       "title": "Paper Balloons",
+      "expandable": true,
       "dateType": "single",
       "date": {
         "date": "2017"
       },
+      "dateShort": {
+        "date": "2017"
+      },
+      "role": "Programmer & Designer",
       "link": "https://paperballoons.herokuapp.com/",
       "linkShort": "paperballoons.herokuapp.com",
-      "shortDescription": "Paper Balloons was an evolution of my prior project, Knick-Knacks, to include server threading and server-side AI.",
+      "shortDescription": "Paper Balloons was an evolution of a prior project, Knick-Knacks, to include server threading of physics and server-side AI.",
       "headerImage": "/images/paperballoons-header.jpg",
       "media": [
         {
@@ -176,53 +157,18 @@
       ]
     },
     {
-      "title": "Knick-Knacks",
-      "dateType": "single",
-      "date": {
-        "date": "2017"
-      },
-      "link": "https://knick-knacks.herokuapp.com/",
-      "linkShort": "knick-knacks.herokuapp.com",
-      "shortDescription": "Knick-Knacks was a class project to develop a websocket based Node.JS server with server-side physics of clients.",
-      "headerImage": "/images/knickknacks-header.jpg",
-      "media": [
-        {
-          "type": "image",
-          "source": "/images/knickknacks-image.jpg",
-          "alt": "The final opening screen for the project."
-        }
-      ],
-      "technologies": [
-        "Node.JS",
-        "Websockets",
-        "ES6/7"
-      ]
-    },
-    {
       "title": "Iron Atlas",
+      "expandable": false,
       "dateType": "single",
       "date": {
         "date": "2016"
       },
-      "shortDescription": "Iron Atlas was a board game created for a class project. A large focus of the game was in exploration and \"discovery\" of terrain.",
-      "headerImage": "/images/iron-atlas-header.jpg",
-      "media": [
-        {
-          "type": "image",
-          "source": "/images/iron-atlas-image-1.jpg",
-          "alt": "An early test of the game design."
-        },
-        {
-          "type": "image",
-          "source": "/images/iron-atlas-image-2.jpg",
-          "alt": "Some of the resource tokens."
-        },
-        {
-          "type": "image",
-          "source": "/images/iron-atlas-image-3.jpg",
-          "alt": "The final design of the game board."
-        }
-      ]
+      "dateShort": {
+        "date": "2016"
+      },
+      "role": "Lead Designer",
+      "shortDescription": "Iron Atlas was a prototype board game created for a game design class project. A large focus of the game was in exploration and \"discovery\" of terrain while building and upgrading armies to fight your opponents. I worked as the lead designer of the project.",
+      "headerImage": "/images/iron-atlas-header.jpg"
     }
   ]
 }
