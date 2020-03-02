@@ -25,7 +25,7 @@ div.slick-list .slick-slide:not(.slick-active) {
 }
 
 .tab-panel-wrapper {
-  min-height: calc(100vh - 84px);
+  min-height: calc(100vh - 92px);
   padding-top: 48px;
 }
 
@@ -94,7 +94,7 @@ div.slick-list .slick-slide:not(.slick-active) {
 
 @media (max-width: 960px) {
   .tab-panel-wrapper {
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 76px);
   }
 }
 @media (max-width: 600px) {

@@ -1,7 +1,7 @@
 @use 'theme';
 
 .tab-panel-wrapper {
-  min-height: calc(100vh - 84px);
+  min-height: calc(100vh - 92px);
   padding-top: 48px;
 }
 
@@ -70,7 +70,7 @@
 
 @media (max-width: theme.$breakpointMD) {
   .tab-panel-wrapper {
-    min-height: calc(100vh - 72px);
+    min-height: calc(100vh - 76px);
   }
 }
 
