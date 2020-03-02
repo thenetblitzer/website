@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import CircularProgress from '@material-ui/core/CircularProgress'
 
 import ProjectExpansion from './ProjectExpansion'
+import LoadingBlock from '../shared/LoadingBlock'
 
 class ProjectsBuilder extends Component {
   
@@ -27,7 +27,7 @@ class ProjectsBuilder extends Component {
     return (
       <div className="projects-wrapper">
         {projects === undefined
-          ? <CircularProgress />
+          ? <LoadingBlock className="bright-text" />
           : this.createProjects(projects)
         }
       </div>

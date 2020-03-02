@@ -2,37 +2,38 @@
 
 .about-wrapper {
   .about-inner-wrapper {
-    max-width: theme.$breakpointMD;
-    margin: auto;
-    padding-bottom: 16px;
+    display: flex;
+    padding: 32px;
+    flex-direction: row;
   }
   .about-profile-picture {
     display: block;
-    width: 50%;
-    margin: auto;
-    padding: 32px 0 16px;
+    width: 40%;
+    margin: 0 auto auto;
+    padding: 16px;
   }
   .about-text {
+    width: 45%;
     padding: 16px;
     color: theme.$textBright;
     font-weight: 300;
-  }
-}
-
-@media (max-width: theme.$breakpointMD) {
-  .about-wrapper {
-    .about-profile-picture {
-      width: calc(100vh - 64px);
-      max-width: theme.$breakpointSM;
+    >div {
+      margin-bottom: 16px;
     }
   }
 }
 
 @media (max-width: theme.$breakpointSM) {
   .about-wrapper {
+    .about-inner-wrapper {
+      flex-direction: column-reverse;
+    }
+    .about-text {
+      width: 100%;
+    }
     .about-profile-picture {
-      width: calc(100vh - 64px);
-      max-width: calc(100vw - 64px);
+      width: calc(100vh - 96px);
+      max-width: calc(100vw - 96px);
     }
   }
 }

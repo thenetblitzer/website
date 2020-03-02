@@ -20,11 +20,17 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 class App extends Component {
-  state = {
-    currentTab: 1,
-    projects: undefined,
-    loading: true,
-    drawerOpen: false,
+  constructor(props) {
+    super(props)
+
+    this.navRef = React.createRef()
+
+    this.state = {
+      currentTab: 1,
+      projects: undefined,
+      loading: true,
+      drawerOpen: false,
+    }
   }
 
   a11yProps (label) {
@@ -46,6 +52,66 @@ class App extends Component {
     })
   }
 
+  componentWillUnmount = () => {
+    clearInterval(this.intervalClock)
+  }
+
+  setupRainbowTab = (element) => {
+    if (element && element.offsetParent) {
+      this.tabIndicator = element
+
+      const tabText = document.querySelector('nav .Mui-selected>span')
+
+      const colorSteps = 4
+      let colorString = 'linear-gradient(to right, '
+
+      for (let i = 0; i < colorSteps; i++) {
+        const hue = (1 * i / (colorSteps - 1)) * 1.5
+        console.log(hue)
+        
+        const sat = 1, val = 1
+        const chroma = sat * val
+        const x = chroma * (1 - Math.abs((hue % 2) - 1))
+        let r = 0, g = 0, b = 0
+        if (hue >= 0 && hue <= 1) {
+          g = x
+          r = chroma
+        } else if (hue > 1 && hue <= 2) {
+          r = x
+          g = chroma
+        } else if (hue > 2 && hue <= 3) {
+          b = x
+          g = chroma
+        } else if (hue > 3 && hue <= 4) {
+          g = x
+          b = chroma
+        } else if (hue > 4 && hue <= 5) {
+          r = x
+          b = chroma
+        } else if (hue > 5 && hue <= 6) {
+          b = x
+          r = chroma
+        }
+        const m = val - chroma
+        const color = {
+          r: (r + m) * 255,
+          g: (g + m) * 255,
+          b: (b + m) * 255,
+        }
+        colorString = `${colorString}rgb(${color.r}, ${color.g}, ${color.b})`
+
+        if (i < colorSteps - 1) {
+          colorString = `${colorString}, `
+        }
+        else {
+          colorString = `${colorString})`
+        }
+      }
+
+      this.tabIndicator.style.background = colorString
+    }
+  }
+
   toggleDrawer = (open) => event => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
@@ -54,6 +120,58 @@ class App extends Component {
     this.setState({
       drawerOpen: open,
     })
+  }
+
+  changeTab = (e, value) => {
+    console.dir(e)
+    
+    if (this.tabIndicator) {
+      const colorSteps = 4
+      let colorString = 'linear-gradient(to right, '
+
+      for (let i = 0; i < colorSteps; i++) {
+        const hue = ((value - 1) + (1 * i / (colorSteps - 1))) * 1.5
+        
+        const sat = 1, val = 1
+        const chroma = sat * val
+        const x = chroma * (1 - Math.abs((hue % 2) - 1))
+        let r = 0, g = 0, b = 0
+        if (hue >= 0 && hue <= 1) {
+          g = x
+          r = chroma
+        } else if (hue > 1 && hue <= 2) {
+          r = x
+          g = chroma
+        } else if (hue > 2 && hue <= 3) {
+          b = x
+          g = chroma
+        } else if (hue > 3 && hue <= 4) {
+          g = x
+          b = chroma
+        } else if (hue > 4 && hue <= 5) {
+          r = x
+          b = chroma
+        } else if (hue > 5 && hue <= 6) {
+          b = x
+          r = chroma
+        }
+        const m = val - chroma
+        const color = {
+          r: (r + m) * 255,
+          g: (g + m) * 255,
+          b: (b + m) * 255,
+        }
+        colorString = `${colorString}rgb(${color.r}, ${color.g}, ${color.b})`
+
+        if (i < colorSteps - 1) {
+          colorString = `${colorString}, `
+        }
+      }
+
+      this.tabIndicator.style.background = `${colorString})`
+    }
+
+    this.setState({ currentTab: value })
   }
 
   render () {
@@ -91,8 +209,11 @@ class App extends Component {
               value={currentTab}
               indicatorColor="primary"
               textColor="primary"
-              onChange={(e, value) => {this.setState({ currentTab: value })}}
+              onChange={this.changeTab}
               aria-label="Portfolio navigation"
+              TabIndicatorProps={{
+                ref: this.setupRainbowTab
+              }}
             >
               <Tab 
                 label="Luke Miller" 

@@ -1,3 +1,11 @@
+@use 'theme';
+
+div.home-wrapper {
+  width: 100%;
+  margin: 0;
+  max-width: inherit;
+  background: theme.$background;
+}
 .splash-container,
 canvas {
   min-height: inherit;
@@ -13,5 +21,54 @@ canvas {
     position: relative;
     height: 50%;
     width: 50%;
+  }
+}
+
+.splash-container {
+  position: relative;
+
+  .name-text,
+  .position-text {
+    position: absolute;
+    transform: translateY(-50%);
+    width: 100%;
+    margin: 0;
+    z-index: 100;
+    color: theme.$textBright;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s;
+    cursor: default;
+    user-select: none;
+
+    &.visible {
+      opacity: 1;
+    }
+  }
+
+  .name-text {
+    top: calc(50vh - 110px);
+    font-size: 3.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  .position-text {
+    top: calc(50vh - 60px);
+    font-size: 1.75rem;
+    font-weight: 400;
+    transition-delay: 0.5s;
+  }
+}
+
+@media (max-width: theme.$breakpointMD) {
+  .splash-container {
+    .name-text {
+      top: calc(50vh - 85px);
+      font-size: 2.5rem;
+    }
+    .position-text {
+      top: calc(50vh - 50px);
+      font-size: 1.25rem;
+    }
   }
 }

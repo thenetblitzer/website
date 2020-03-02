@@ -16,11 +16,11 @@ class ResumePage extends Component {
     let height
     const width = h / 11 * 8.5
 
-    if (width > (w - 32)) {
-      height = (w - 32) / 8.5 * 11
+    if (width > w) {
+      height = w / 8.5 * 11
     }
     else {
-      height = h - 32
+      height = h
     }
 
     this.setState({
@@ -42,19 +42,26 @@ class ResumePage extends Component {
 
     return (
       <div className="resume-wrapper">
-        <ReactResizeDetector handleWidth handleHeight onResize={this.onResize}>
-          <Document
-            file="/data/resume.pdf"
-            onLoadSuccess={this.onLoadSuccess}
-            loading={(
-              <div className="resume-background">
-                <CircularProgress />
-              </div>
-            )}
-          >
-            <Page height={height} pageNumber={pageNumber} />
-          </Document>
-        </ReactResizeDetector>
+        <div className="resume-inner">
+          <ReactResizeDetector handleWidth handleHeight onResize={this.onResize}>
+            <Document
+              file="/data/resume.pdf"
+              onLoadSuccess={this.onLoadSuccess}
+              loading={(
+                <div className="resume-background">
+                  <CircularProgress />
+                </div>
+              )}
+            >
+              <Page height={height} pageNumber={pageNumber} />
+            </Document>
+          </ReactResizeDetector>
+        </div>
+        <div className="resume-opener">
+          <a rel="noopener noreferrer" target="_blank" href="/data/resume.pdf">
+            open in new tab
+          </a>
+        </div>
       </div>
     )
   }

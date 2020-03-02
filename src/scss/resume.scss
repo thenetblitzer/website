@@ -1,10 +1,9 @@
 @use 'theme';
 
 .resume-wrapper {
-  height: calc(100vh - 48px);
-  
-  div {
-    height: 100%;
+  .resume-inner {
+    min-height: inherit;
+    padding: 16px;
   }
 
   .resume-background, 
@@ -18,11 +17,20 @@
     }
   }
   div.react-pdf__Page {
-    padding-top: 16px;
+    height: 100%;
     align-items: flex-start;
   }
 
   .annotationLayer {
     display: none;
+  }
+
+  .resume-opener {
+    height: 32px;
+    text-align: center;
+    a {
+      color: theme.$linkBright;
+      text-decoration: none;
+    }
   }
 }

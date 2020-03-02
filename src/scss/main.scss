@@ -42,6 +42,9 @@ nav.nav-wrapper {
   }
   .logo-tab {
     margin-right: auto; 
+    span {
+      font-weight: 600;
+    }
   }
   .mobile-menu-tab {
     min-width: inherit;
@@ -50,7 +53,8 @@ nav.nav-wrapper {
 }
 
 footer.footer-wrapper {
-  height: 32px;
+  height: 36px;
+  padding-top: 8px;
   background: theme.$border;
   box-shadow: 0 0 6px 0 #000;
   z-index: 1000;
@@ -60,8 +64,8 @@ footer.footer-wrapper {
     height: 100%;
     max-width: theme.$breakpointLG;
     margin: auto;
-    padding-top: 4px;
     color: theme.$textDim;
+    font-size: 0.8rem;
 
     span:first-child {
       margin-left: auto;
@@ -82,6 +86,7 @@ footer.footer-wrapper {
 @media (max-width: theme.$breakpointMD) {
   footer.footer-wrapper{
     height: 24px;
+    padding-top: 4px;
 
     .footer-inner-container span, .footer-inner-container a {
       font-size: 0.8rem;
@@ -92,7 +97,6 @@ footer.footer-wrapper {
 @media (max-width: theme.$breakpointSM) {
   footer.footer-wrapper{
     height: 20px;
-    padding-top: 0;
 
     .footer-inner-container span, .footer-inner-container a {
       font-size: 0.6rem;

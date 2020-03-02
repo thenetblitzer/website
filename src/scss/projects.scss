@@ -1,23 +1,26 @@
 @use 'theme';
 
 .projects-wrapper .project-panel-wrapper {
-  border-bottom: 2px solid theme.$border;
+  border-bottom: 2px solid black;
   color: theme.$textBright;
 
   .project-panel-header {
-    height: 240px;
+    height: 220px;
     padding: 0;
     align-items: start;
 
     background-position-x: 100%;
     background-position-y: center;
-    background-size: 60%;
+    background-size: auto 240px;
     transition: height 0.25s;
     
     >div {
       height: 100%;
       padding: 12px 24px;
       background: linear-gradient(to right, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0));
+    }
+    .project-expansion-icon {
+      margin-bottom: -8px;
     }
 
     &.panel-expanded {
@@ -29,46 +32,68 @@
         opacity: 0;
         pointer-events: none;
       }
+      .project-panel-header-text-wrapper {
+        border-bottom-color: rgba(0, 0, 0, 0);
+      }
+    }
+    &.panel-empty {
+      cursor: default;
+    }
+    &:not(.panel-expanded):not(.panel-empty):hover {
+      height: 240px;
+
+      .project-expansion-key {
+        color: theme.$linkBright;
+      }
     }
   }
+  .project-panel-header-text-wrapper {
+    height: 100%;
+    width: 45%;
+    border-bottom: 1px solid theme.$textBright;
+  }
+
+  .project-title,
+  .project-date,
+  .project-short-description {
+    display: block;
+    width: 100%;
+  }
+
   .project-title {
-    margin-top: 6px;
+    margin: 6px 0 0;
     line-height: 2rem;
-    font-size: 2rem;
-    font-weight: 300;
+    font-size: 1.5rem;
+    font-weight: 600;
     color: theme.$textBright;
   }
   .project-date {
-    margin-top: 4px;
+    margin: 4px 0 0;
     font-size: 1.1rem;
     font-weight: 300;
-    color: theme.$textDim;
+    color: theme.$textBright;
   }
   .project-short-description {
-    width: 40%;
-    margin: 32px 0 0;
+    margin: 18px 0 0;
     font-size: 1rem;
-    color: theme.$textDim;
+    font-weight: 300;
+    color: theme.$textBright;
     transition: all 0.2s;
   }
   .project-expansion-key {
+    display: block;
     position: absolute;
     bottom: 0;
-    margin-bottom: 16px;
+    margin: 0 0 16px;
     font-size: 1.1rem;
+    color: theme.$linkDim;
     font-weight: 300;
+    transition: color 0.25s;
   }
-
-  .project-panel-content {
-    background: theme.$border;
-    box-shadow: 0 0 6px 0 #000 inset;
-  }
+  
   .project-content-information {
     height: max-content;
     width: 100%;
-    margin: 16px 0 0;
-    background: theme.$wrapperBackground;
-    box-shadow: 0 0 6px 0 #000;
     font-weight: 300;
   }
   .project-content-media {
@@ -82,8 +107,32 @@
       opacity: 1;
     }
   }
+  .project-content-text {
+    height: 100%;
+    width: calc(45% - 32px);
+    border-bottom: 1px solid theme.$textBright;
+    .project-collapse {
+      padding: 12px 8px;
+      color: theme.$linkDim;
+      transition: color 0.2s, padding 0.2s;
+      cursor: pointer;
+
+      .project-expansion-icon {
+        margin-bottom: -8px;
+        transform: rotateX(180deg);
+      }
+      &:hover {
+        padding: 16px 8px;
+        color: theme.$linkBright;
+      }
+    }
+  }
   .project-text-box {
-    padding: 12px 12px 0;
+    padding: 18px 12px 0;
+
+    &:last-child {
+      padding-bottom: 12px;
+    }
   }
   .project-long-description {
     span {
@@ -92,7 +141,10 @@
       padding-bottom: 4px;
     }
     p {
-      margin: 4px 0;
+      margin: 0;
+    }
+    p:not(:last-child) {
+      margin: 0 0 18px;
     }
   }
   .project-link {
@@ -102,16 +154,9 @@
       text-decoration: none;
     }
   }
-  .project-tech-list-wrapper {
-    padding-bottom: 12px;
-    span {
-      font-size: 1.25rem;
-      color: theme.$textBright;
-    }
-    .project-tech-list {
-      margin: 0;
-      padding: 4px 24px;
-    }
+  .project-tech-list-wrapper .project-tech-list {
+    margin: 0;
+    padding: 4px 24px;
   }
 }
 
@@ -175,13 +220,15 @@ button.media-slider-fullscreen-button {
 
   .media-slider-fullscreen {
     margin: 0 32px;
+    width: 100%;
   }
 }
 
 @media (max-width: theme.$breakpointMD) {
   .projects-wrapper .project-panel-wrapper {
     .project-panel-header {
-      height: 120px;
+      height: 150px;
+      background-size: auto 150px;
 
       >div {
         align-items: baseline;
@@ -203,6 +250,9 @@ button.media-slider-fullscreen-button {
     .project-content-media {
       float: none;
       width: calc(100% - 32px);
+    }
+    .project-content-text {
+      width: 100%;
     }
   }
   

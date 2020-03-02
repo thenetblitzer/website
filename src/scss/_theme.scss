@@ -6,12 +6,14 @@ $breakpointLG: 1280px;
 $breakpointXL: 1920px;
 
 // Colors
-$background: #eaeaea;
+$background: #000;
 $linkColor: #CEFFB5;
 $linkDark: #A5CC91;
 $border: #2a2a2a;
-$wrapperBackground: #444;
-$sectionBackground: #666;
+$wrapperBackground: #000;
+$sectionBackground: #000;
 $textDim: #aaa;
 $textBright: #eaeaea;
 $textDark: #2a2a2a;
+$linkDim: $linkDark;
+$linkBright: $linkColor;

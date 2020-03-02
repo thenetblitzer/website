@@ -277,6 +277,7 @@ class SplashArt extends Component {
     prevTime: -1,
     pointList: [],
     flowField: null,
+    animationFrame: -1,
   }
 
   componentDidMount = () => {
@@ -284,18 +285,29 @@ class SplashArt extends Component {
     const currentContext = currentCanvas.getContext("2d")
 
     const flowField = new FlowField()
+    const animationFrame = requestAnimationFrame(this.mainAnimationCycle)
 
     this.setState({
       currentCanvas,
       currentContext,
       flowField,
+      animationFrame
     })
+  }
 
-    requestAnimationFrame(this.mainAnimationCycle)
+  componentWillUnmount = () => {
+    const { animationFrame } = this.state
+    cancelAnimationFrame(animationFrame)
   }
 
   mainAnimationCycle = () => {
     const { width, height, currentContext, cycleStage, cycleCounter, prevTime, pointList, flowField } = this.state
+    
+    // Make sure to continue with the animation.
+    let animationFrame
+    if (cycleStage !== 3) {
+      animationFrame = requestAnimationFrame(this.mainAnimationCycle)
+    }
 
     // Variables for updating between animation frames. Split so we don't repeatedly call setState.
     let updatedCycleStage = cycleStage, updatedCycleCounter = cycleCounter, updatedPrevTime = prevTime
@@ -308,10 +320,6 @@ class SplashArt extends Component {
       deltaTime = curTime - prevTime
     }
     updatedPrevTime = curTime
-
-    // Variables used for responsive rendering.
-    const largeFontSize = (width > 600) ? "4rem" : "2.5rem"
-    const smallFontSize = (width > 600) ? "1.7rem" : "1.25rem"
 
     switch (cycleStage) {
       default:
@@ -334,36 +342,17 @@ class SplashArt extends Component {
         }
         break
       case 1:
-        {
-          updatedCycleCounter += deltaTime
-          let opacity = updatedCycleCounter / 1000
-          
-          // Clear the canvas and draw background.
-          currentContext.clearRect(0, 0, width, height)
-          currentContext.globalAlpha = 1
-          currentContext.fillStyle = "#000"
-          currentContext.fillRect(0, 0, width, height)
+        updatedCycleCounter += deltaTime
+        
+        // Clear the canvas and draw background.
+        currentContext.clearRect(0, 0, width, height)
+        currentContext.globalAlpha = 1
+        currentContext.fillStyle = "#000"
+        currentContext.fillRect(0, 0, width, height)
 
-          // Draw name text.
-          currentContext.globalAlpha = opacity
-          currentContext.fillStyle = "#eaeaea"
-          currentContext.font = `300 ${largeFontSize} Lato`
-          currentContext.textAlign = "center"
-          currentContext.fillText("Luke Miller", width / 2, height / 2 - 20)
-
-          // Draw occupation text.
-          if (updatedCycleCounter > 500) {
-            opacity = (updatedCycleCounter - 500) / 1000
-            currentContext.globalAlpha = opacity
-            currentContext.fillStyle = "#aaa"
-            currentContext.font = `300 ${smallFontSize} Lato`
-            currentContext.fillText("Game Developer | Web Developer", width / 2.015, height / 2 + 15)
-          }
-
-          if (updatedCycleCounter > 1500) {
-            updatedCycleStage = 2
-            updatedCycleCounter = 0
-          }
+        if (updatedCycleCounter > 1500) {
+          updatedCycleStage = 2
+          updatedCycleCounter = 0
         }
         break
       case 2:
@@ -376,17 +365,6 @@ class SplashArt extends Component {
           currentContext.globalAlpha = 0.02// Math.max(0.02, (1 - (updatedCycleCounter / 15000)) * 0.02)
           currentContext.fillRect(0, 0, width, height)
           currentContext.globalAlpha = 1
-
-          // Draw name text.
-          currentContext.fillStyle = "#eaeaea"
-          currentContext.font = `300 ${largeFontSize} Lato`
-          currentContext.textAlign = "center"
-          currentContext.fillText("Luke Miller", width / 2, height / 2 - 20)
-
-          // Draw occupation text.
-          currentContext.fillStyle = "#aaa"
-          currentContext.font = `300 ${smallFontSize} Lato`
-          currentContext.fillText("Game Developer | Web Developer", width / 2.015, height / 2 + 15)
 
           const forceMod = Math.max(0, 1 - (updatedCycleCounter / 5000))
           const slowMod = Math.max(0, Math.min(0.8, (updatedCycleCounter / 5000) - 1))
@@ -420,15 +398,12 @@ class SplashArt extends Component {
       case 3:
         // Empty case.
     }
-    
-    if (updatedCycleStage !== 3) {
-      requestAnimationFrame(this.mainAnimationCycle)
-    }
 
     this.setState({
       cycleStage: updatedCycleStage,
       cycleCounter: updatedCycleCounter,
       prevTime: updatedPrevTime,
+      animationFrame,
     })
   }
 
@@ -457,7 +432,7 @@ class SplashArt extends Component {
   }
 
   render = () => {
-    const { width, height } = this.state
+    const { width, height, cycleStage } = this.state
 
     return (
       <div className="splash-container">
@@ -465,6 +440,8 @@ class SplashArt extends Component {
           <canvas ref="splashCanvas" style={{width: `${width}px`, height: `${height}px`}} >
             Please update your browser to get full benefits from this site.
           </canvas>
+          <h1 className={`name-text ${cycleStage > 0 ? "visible": null}`}>Luke Miller</h1>
+          <h3 className={`position-text ${cycleStage > 0 ? "visible": null}`}>Game Developer | Web Developer</h3>
         </ReactResizeDetector>
       </div>
     )

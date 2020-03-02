@@ -3,6 +3,9 @@ import ExpansionPanel from '@material-ui/core/ExpansionPanel'
 import ExpansionPanelSummary from '@material-ui/core/ExpansionPanelSummary'
 import ExpansionPanelDetails from '@material-ui/core/ExpansionPanelDetails'
 import Hidden from '@material-ui/core/Hidden'
+import { useTheme } from '@material-ui/core/styles'
+import useMediaQuery from '@material-ui/core/useMediaQuery'
+import KeyboardArrowDownIcon from '@material-ui/icons/KeyboardArrowDown'
 
 import MediaSlider from '../shared/MediaSlider'
 
@@ -21,58 +24,81 @@ const ProjectExpansion = (props) => {
     )
   })
 
+  const theme = useTheme()
+  const mobile = useMediaQuery(theme.breakpoints.down('sm'))
+  let backgroundSize, backgroundPositionX
+  if (!mobile) {
+    backgroundSize = (project.headerSize ? project.headerSize : "auto 240px")
+    backgroundPositionX = (project.headerXPos ? project.headerXPos : "100%")
+  }
+  else {
+    backgroundSize = (project.headerSizeMobile ? project.headerSizeMobile : "auto 150px")
+    backgroundPositionX = (project.headerXPosMobile ? project.headerXPosMobile : "100%")
+  }
+
   return (
     <ExpansionPanel className="project-panel-wrapper" expanded={expanded}>
       <ExpansionPanelSummary
         aria-controls={`project-panel-header-${id}`}
         id={`project-panel-header-${id}`}
-        className={`project-panel-header${expanded ? " panel-expanded" : ""}`}
-        onClick={() => {setExpanded(!expanded)}}
+        className={`project-panel-header ${expanded ? "panel-expanded" : ""} ${project.expandable ? "" : "panel-empty"}`}
+        onClick={project.expandable ? () => {setExpanded(!expanded)} : null}
         style={{ 
           backgroundImage: `url(${project.headerImage})`, 
-          backgroundPositionX: (project.headerXPos ? project.headerXPos : "100%"), 
-          backgroundSize: (project.headerSize ? project.headerSize : "60%") 
+          backgroundPositionX, 
+          backgroundSize
         }}
       >
-        <div className="project-title">
-          {project.title}
-        </div>
-        <Hidden smDown>
-          {createDateText(project.dateType, project.date)}
-          {project.shortDescription && <div className="project-short-description">
-            {project.shortDescription}
-          </div>}
-        </Hidden>
-        <Hidden mdUp>
-          {createDateText(project.dateType, (project.dateShort | project.date))}
-        </Hidden>
-        <div className="project-expansion-key">
-          Click to view more...
+        <div className="project-panel-header-text-wrapper">
+          <h2 className="project-title">
+            {project.title}
+          </h2>
+          <Hidden smDown>
+            {createDateText(project.dateType, project.date)}
+            {project.shortDescription && <h5 className="project-short-description">
+              {project.shortDescription}
+            </h5>}
+          </Hidden>
+          <Hidden mdUp>
+            {createDateText(project.dateType, project.dateShort)}
+          </Hidden>
+          {project.expandable && <h6 className="project-expansion-key">
+            {"learn more"}
+            {<KeyboardArrowDownIcon className="project-expansion-icon" />}
+          </h6>}
         </div>
       </ExpansionPanelSummary>
-      <ExpansionPanelDetails className="project-panel-content">
+      {project.expandable && <ExpansionPanelDetails className="project-panel-content">
         <div className="project-content-information">
           <div className="project-content-media">
             <MediaSlider media={project.media} />
           </div>
-          
-          {project.link && <div className="project-link project-text-box">
-            <span>
-              {"Link to view: "}
-              <a href={project.link} target="_blank" rel="noopener noreferrer">
-                {project.linkShort || project.link}
-              </a>
-            </span>
-          </div>}
-          {(project.longDescription || project.shortDescription) && <div className="project-long-description project-text-box">
-            <span>
-              Description:
-            </span>
-            {descriptionBlocks}
-          </div>}
-          {project.technologies && createTechnologies(project.technologies)}
+          <div className="project-content-text">
+            {project.link && <div className="project-link project-text-box">
+              <span>
+                {"Link to view: "}
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  {project.linkShort || project.link}
+                </a>
+              </span>
+            </div>}
+            {project.role && <div className="project-role project-text-box">
+              <span>
+                {"Project role: "}
+                {project.role}
+              </span>
+            </div>}
+            {(project.longDescription || project.shortDescription) && <div className="project-long-description project-text-box">
+              {descriptionBlocks}
+            </div>}
+            {project.technologies && createTechnologies(project.technologies)}
+            <div className="project-collapse" onClick={project.expandable ? () => {setExpanded(!expanded)} : null} >
+              {<KeyboardArrowDownIcon className="project-expansion-icon" />}
+              {"close"}
+            </div>
+          </div>
         </div>
-      </ExpansionPanelDetails>
+      </ExpansionPanelDetails>}
     </ExpansionPanel>
   )
 }
@@ -83,16 +109,16 @@ const createDateText = (dateType, dateObject) => {
   switch (dateType) {
     case "range":
       dateText = (
-        <div className="project-date">
+        <h4 className="project-date">
           {`${dateObject.start} - ${dateObject.end}`}
-        </div>
+        </h4>
       )
       break
     case "single":
       dateText = (
-        <div className="project-date">
+        <h4 className="project-date">
           {`${dateObject.date}`}
-        </div>
+        </h4>
       )
       break
     default:
